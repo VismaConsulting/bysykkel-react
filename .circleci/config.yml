@@ -1,0 +1,59 @@
+version: 2
+jobs:
+  build:
+
+    working_directory: ~/repo
+
+    docker:
+      - image: petersf7/node-aws-eks
+
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
+      - run: npm install
+
+      - run: npm run build
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      - setup_remote_docker:
+          docker_layer_caching: true
+
+      - run:
+          name: Docker vars
+          command: |
+            echo 'export ECR_REPOSITORY_NAME="fagsamling2018"' >> $BASH_ENV
+            echo 'export APP_NAME="bysykkel-react-${CIRCLE_BRANCH}"' >> $BASH_ENV
+            echo 'export TAG_NAME="${APP_NAME}.${CIRCLE_BUILD_NUM}"' >> $BASH_ENV
+            echo 'export FULL_IMAGE_NAME="593923806297.dkr.ecr.eu-west-1.amazonaws.com/${ECR_REPOSITORY_NAME}:${TAG_NAME}"' >> $BASH_ENV
+      - run:
+          name: Docker build
+          command: docker build -t ${FULL_IMAGE_NAME} .
+
+      - run:
+          name: Docker push
+          command: |
+            eval $(aws ecr get-login --region eu-west-1 --no-include-email)
+            docker push $FULL_IMAGE_NAME
+
+      - run:
+          name: EKS Deploy
+          command: |
+            aws eks update-kubeconfig --name visma-consulting-eks --region eu-west-1
+            envsubst < deployment.yaml > output.yaml
+            kubectl apply -f output.yaml
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build:
+          context: aws
