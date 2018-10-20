@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${APP_NAME}
+spec:
+  selector:
+    matchLabels:
+      app: ${APP_NAME}
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ${APP_NAME}
+    spec:
+      containers:
+      - name: ${APP_NAME}
+        image: ${FULL_IMAGE_NAME}
+        resources:
+          requests:
+            cpu: 0.1
+            memory: "256Mi"
+          limits:
+            cpu: 1
+            memory: "512Mi"
+        livenessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /actuator/isAlive
+            port: 8080
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+          failureThreshold: 10
+        readinessProbe:
+          httpGet:
+            scheme: HTTP
+            path: /actuator/isReady
+            port: 8080
+          initialDelaySeconds: 10
+          timeoutSeconds: 1
+          failureThreshold: 10
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ${APP_NAME}
+spec:
+  selector:
+    app: ${APP_NAME}
+  ports:
+  - name: web
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: ${APP_NAME}
+spec:
+  minReplicas: 1
+  maxReplicas: 1
+  targetCPUUtilizationPercentage: 50
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: ${APP_NAME}
