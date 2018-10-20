@@ -65,40 +65,10 @@ export default class Marker extends Component {
         }
     }
 
-    // delegators
-/*
-    // controls
-    isRetina() {
-        return typeof window !== 'undefined' && window.devicePixelRatio >= 2
-    }
-
-    // modifiers
-    isHover() {
-        return typeof this.props.hover === 'boolean' ? this.props.hover : this.state.hover
-    }
-
-    image() {
-        return this.isRetina() ? (this.isHover() ? pinHoverRetina : pinRetina) : (this.isHover() ? pinHover : pin)
-    }
-
-    componentDidMount() {
-        let images = this.isRetina() ? [
-            pinRetina, pinHoverRetina
-        ] : [
-            pin, pinHover
-        ];
-
-        images.forEach(image => {
-            let img = new window.Image();
-            img.src = image
-        })
-    }
-    */
-
     // render
 
     render() {
-        const {left, top, onClick} = this.props;
+        const {left, top, onClick, type} = this.props;
 
         const style = {
             position: 'absolute',
@@ -108,7 +78,7 @@ export default class Marker extends Component {
 
         return (
             <div style={style}
-                 className='map-marker-custom'
+                 className={type === 'HENT' ? 'map-marker-hent' : 'map-marker-lever'}
                  onClick={this.handleClick}
                  onContextMenu={this.handleContextMenu}
                  onMouseOver={this.handleMouseOver}

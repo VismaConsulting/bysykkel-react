@@ -5,7 +5,7 @@
             .cls-1{clip-rule:evenodd;}
             .cls-3{clip-path:url(#clip-path);}
             .cls-4{clip-path:url(#clip-path-2);}
-            .cls-5{fill:#813091;}
+            .cls-5{fill:green;}
             .cls-6{clip-path:url(#clip-path-3);}
             .cls-7{isolation:isolate;}
             .cls-8{clip-path:url(#clip-path-5);}
