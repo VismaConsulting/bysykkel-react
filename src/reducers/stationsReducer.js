@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
         case GET_STATIONS_SUCCESS:
             return {
                 ...state,
-                stations: action.stations,
+                stations: action.stations.stations,
                 pending: false
             };
         case GET_STATIONS_FAILURE:

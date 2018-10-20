@@ -15,6 +15,7 @@ class App extends Component {
         const {
             stations,
             pending,
+            error,
             showStationDetails,
             selectedStation
         } = this.props;
@@ -23,6 +24,8 @@ class App extends Component {
             <div className="App">
                 {pending ? (
                     <div>Laster inn stasjoner...</div>
+                ) : error ? (
+                    <div>En feil oppstod</div>
                 ) : (
                     <Fragment>
                         <BysykkelMap
@@ -41,6 +44,7 @@ export default connect(
     state => ({
         stations: state.stations.stations,
         pending: state.stations.pending,
+        error: state.stations.error,
         selectedStation: state.stations.selectedStation
     }),
     { getStations, showStationDetails }

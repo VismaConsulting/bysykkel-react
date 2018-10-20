@@ -7,7 +7,7 @@ import {
     SHOW_STATION_DETAILS
 } from './types';
 
-const apiUrl = '/api/stasjoner';
+const apiUrl = '/api/stations';
 
 export const getStations = () => dispatch => {
     dispatch(getStationsRequest());
