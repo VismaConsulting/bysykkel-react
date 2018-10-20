@@ -1,12 +1,15 @@
 
-let less = require('less');
+let scss = require('node-sass');
 let fs = require('fs');
-let input = fs.readFileSync(__dirname + '/css.less', 'utf8');
 
 if (fs.existsSync(__dirname + '/sees.css')) {
     fs.unlinkSync(__dirname + '/sees.css');
 }
 
-less.render(input, {}, function (err, result) {
+scss.render({file: __dirname + '/css.scss'}, function (err, result) {
+    if (err) {
+        console.log(err);
+        return;
+    }
     fs.writeFileSync(__dirname + '/sees.css', result.css);
 });

@@ -7,6 +7,8 @@ import {getStations, showStationDetails} from './actions/stationsActions';
 import './App.css';
 import './css/sees.css'
 import {getChallenges} from "./actions/challengesActions";
+import ReactLoading from 'react-loading';
+
 
 class App extends Component {
     componentDidMount() {
@@ -27,9 +29,11 @@ class App extends Component {
         return (
             <div className="App">
                 {pending ? (
-                    <div>Laster inn stasjoner...</div>
+                    <div className='spinning'>
+                        <ReactLoading type='spinningBubbles'/>
+                    </div>
                 ) : error ? (
-                    <div>En feil oppstod</div>
+                    <div className='spinning'>En feil oppstod</div>
                 ) : (
                     <Fragment>
                         <div className="container">
