@@ -6,7 +6,7 @@ export const SelectedStation = ({ station }) => {
     }
 
     return (
-        <div>
+        <div className="tooltip">
             <div>{station.title} - {station.subtitle}</div>
             <div>Kapasitet: {station.number_of_locks} sykler</div>
         </div>

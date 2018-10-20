@@ -1,7 +1,7 @@
-let express = require('express');
-let app = express();
-let path = require('path');
-let request = require('request');
+var express = require('express');
+var app = express();
+var path = require('path');
+var request = require('request');
 
 app.use('/', express.static(path.join(__dirname, 'build')));
 
@@ -22,6 +22,12 @@ app.get('/api/stations', (req, res) => {
     }).pipe(res)
 });
 
-let port = process.env.PORT || 8080;
+app.get('/api/challenges', (req, res) => {
+    request({
+        uri: 'http://gruppe5.vimsa.no/api/v1/challenges'
+    }).pipe(res)
+});
+
+const port = process.env.PORT || 8080;
 app.listen(port);
 console.log('Starting server at ' + port);
