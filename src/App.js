@@ -38,7 +38,7 @@ class App extends Component {
                                 onStationClick={showStationDetails}
                             />
                             {challenges && challenges.map((challenge, idx) =>
-                                <div key={idx}>{challenge.stationId}: {challenge.points}</div>
+                                <div key={idx}>{challenge.type}: {challenge.points}</div>
                             )}
                         </div>
                     </Fragment>
