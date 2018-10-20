@@ -8,6 +8,7 @@ import {
 } from './types';
 
 const apiUrl = '/api/stations';
+const nyApi = '/closeststations?latitude=59.91565254992276&longitude=10.762672126293182';
 
 export const getStations = () => dispatch => {
     dispatch(getStationsRequest());

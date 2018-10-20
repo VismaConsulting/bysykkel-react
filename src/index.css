@@ -6,9 +6,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;  
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.stationListEntry {
+  margin-top: 0.5em;
+  padding: 1em;
+}
+
+.reserveButton {
+  border-radius: 2px;
+
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  margin: 0 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+  background-color: #008CBA;
 }
