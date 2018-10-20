@@ -17,7 +17,7 @@ app.get('/api/stations', (req, res) => {
     request({
         uri: 'https://oslobysykkel.no/api/v1/stations',
         headers: {
-            'Client-Identifier': ''
+            'Client-Identifier': 'e44519c73a069e34d97bf6238a34dc27'
         }
     }).pipe(res)
 })

@@ -4,9 +4,16 @@ Laget med [create-react-app](https://github.com/facebook/create-react-app)
 
 Krever [Node.js](https://nodejs.org/en/)
 
-For å hente data trengs en api key fra <https://developer.oslobysykkel.no/>
+## How to
+Pull prosjektet. Lag en egen branch. Gjør dine kreative endringer. Add-Commit-Push. Tada!
 
-## Quick start
+## Server
+Det er satt opp en enkelt server med et enkelt endepunkt som går mot bysykkel api.
+
+## Deploy
+Prosjektet deployes ved hver push til repo
+
+## Lokalkjøring
 NPM
 ```bash
 npm install
