@@ -1,2 +1,1 @@
-
-export const kapasitet:string = 'Kapasitet';
+export const kapasitet: string = 'Kapasitet';
