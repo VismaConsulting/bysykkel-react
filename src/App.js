@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { BysykkelMap } from './components/BysykkelMap';
 import { SelectedStation } from './components/SelectedStation';
 import { getStations, showStationDetails } from './actions/stationsActions';
+import BottomMenu from './BottomMenu';
 import './App.css';
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
                         <SelectedStation station={selectedStation} />
                     </Fragment>
                 )}
+                <BottomMenu />
             </div>
         );
     }

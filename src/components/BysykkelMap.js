@@ -7,7 +7,7 @@ export class BysykkelMap extends Component {
         stations: [],
         center: [59.913868, 10.741732],
         zoom: 12,
-        width: 1000,
+        width: 100,
         height: 700
     };
 
