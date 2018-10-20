@@ -8,5 +8,11 @@ Krever [Node.js](https://nodejs.org/en/)
 NPM
 ```bash
 npm install
+npm run build
+node server.js
+```
+
+Kan også kjøre dev server med
+```bash
 npm start
 ```
