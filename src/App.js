@@ -6,9 +6,9 @@ import {SelectedStation} from './components/SelectedStation';
 import {getStations, showStationDetails} from './actions/stationsActions';
 import './App.css';
 import './css/sees.css'
-import {getChallenges} from "./actions/challengesActions";
 import ReactLoading from 'react-loading';
 
+import {getChallenges, showChallengeDetails} from "./actions/challengesActions";
 
 class App extends Component {
     componentDidMount() {
@@ -36,15 +36,14 @@ class App extends Component {
                     <div className='spinning'>En feil oppstod</div>
                 ) : (
                     <Fragment>
-                        <div className="container">
+                        <div className="container fadeIn">
                             <SelectedStation station={selectedStation}/>
                             <BysykkelMap
                                 stations={stations}
+                                challenges={challenges}
                                 onStationClick={showStationDetails}
+                                onChallengeClick={showChallengeDetails}
                             />
-                            {challenges && challenges.map((challenge, idx) =>
-                                <div key={idx}>{challenge.type}: {challenge.points}</div>
-                            )}
                         </div>
                     </Fragment>
                 )}
@@ -56,10 +55,11 @@ class App extends Component {
 export default connect(
     state => ({
         stations: state.stations.stations,
-        pending: state.stations.pending,
-        error: state.stations.error,
+        challenges: state.challenges.challenges,
+        pending: state.stations.pending || state.challenges.pending,
+        error: state.stations.error || state.challenges.error,
         selectedStation: state.stations.selectedStation,
-        challenges: state.challenges.challenges
+        selectedChallenge: state.challenges.selectedChallenge
     }),
-    {getStations, showStationDetails, getChallenges}
+    {getStations, showStationDetails, showChallengeDetails, getChallenges}
 )(App);

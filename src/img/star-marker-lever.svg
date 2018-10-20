@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="thrill" viewBox="0 0 45.63 51.79">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:none;}
+            .cls-1{clip-rule:evenodd;}
+            .cls-3{clip-path:url(#clip-path);}
+            .cls-4{clip-path:url(#clip-path-2);}
+            .cls-5{fill:gold;}
+            .cls-6{clip-path:url(#clip-path-3);}
+            .cls-7{isolation:isolate;}
+            .cls-8{clip-path:url(#clip-path-5);}
+            .cls-9{clip-path:url(#clip-path-6);}
+            .cls-10{fill:#fff;}
+        </style>
+        <clipPath id="clip-path" transform="translate(5.81 5.54)">
+            <path class="cls-1"
+                  d="M17,1.28A15.81,15.81,0,0,0,1,16.89c0,8.75,7,14.73,16,22.55,9-7.82,16-13.8,16-22.55A15.81,15.81,0,0,0,17,1.28"/>
+        </clipPath>
+        <clipPath id="clip-path-2" transform="translate(5.81 5.54)">
+            <rect class="cls-2" x="-68.51" y="-200.44" width="511.11" height="763.26"/>
+        </clipPath>
+        <clipPath id="clip-path-3" transform="translate(5.81 5.54)">
+            <rect class="cls-2" x="7.82" y="8.09" width="17.72" height="17.72"/>
+        </clipPath>
+        <clipPath id="clip-path-5" transform="translate(5.81 5.54)">
+            <rect class="cls-2" x="7.81" y="8.09" width="17.72" height="17.72"/>
+        </clipPath>
+        <clipPath id="clip-path-6" transform="translate(5.81 5.54)">
+            <path class="cls-1"
+                  d="M16.67,8.09A8.86,8.86,0,1,0,25.53,17,8.85,8.85,0,0,0,16.67,8.09Zm3.75,14.18L16.67,20l-3.74,2.26,1-4.26-3.31-2.86L15,14.77l1.7-4,1.7,4,4.36.38L19.43,18Z"/>
+        </clipPath>
+    </defs>
+    <title>marker-thrill</title>
+    <g class="cls-3">
+        <g class="cls-4">
+            <rect class="cls-5" width="45.63" height="51.79"/>
+        </g>
+    </g>
+    <g class="cls-6">
+        <g class="cls-4">
+            <g class="cls-7">
+                <g class="cls-8">
+                    <g class="cls-9">
+                        <g class="cls-8">
+                            <rect class="cls-10" x="6.82" y="6.81" width="31.35" height="31.35"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -2,7 +2,6 @@ import {
     GET_CHALLENGES_FAILURE,
     GET_CHALLENGES_REQUEST,
     GET_CHALLENGES_SUCCESS,
-    SELECT_CHALLENGE,
     SHOW_CHALLENGE_DETAILS
 } from "../actions/types";
 
@@ -24,7 +23,7 @@ export default (state = initialState, action) => {
         case GET_CHALLENGES_SUCCESS:
             return {
                 ...state,
-                challenges: action.challenges.challenges,
+                challenges: action.challenges,
                 pending: false
             };
         case GET_CHALLENGES_FAILURE:
@@ -37,11 +36,6 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 selectedChallenge: action.challenge
-            };
-        case SELECT_CHALLENGE:
-            return {
-                ...state,
-
             };
         default:
             return state;

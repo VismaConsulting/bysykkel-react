@@ -41,4 +41,20 @@
     }
 }
 
+.map-marker-hent {
+    width: 29px;
+    height: 34px;
+    z-index: 98;
+    background: url(./img/star-marker-hent.svg) no-repeat;
+}
+.map-marker-lever {
+    width: 29px;
+    height: 34px;
+    z-index: 98;
+    background: url(./img/star-marker-lever.svg) no-repeat;
+}
+
+.cls-5 {
+    fill: red!important;
+}
 
