@@ -7,11 +7,12 @@ import {
     SHOW_STATION_DETAILS
 } from './types';
 
-const apiUrl = '/api/stations';
+const host = 'http://master.vimsa.no';
+const stations = '/stations';
 
 export const getStations = () => dispatch => {
     dispatch(getStationsRequest());
-    axios.get(apiUrl)
+    axios.get(host + stations)
         .then(response => {
             dispatch(getStationsSuccess(response.data));
         })
