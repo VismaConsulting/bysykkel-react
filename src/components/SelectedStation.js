@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {kapasitet} from "../typescript/variable";
+import {kapasitet} from "../typescript/typescript";
 
 export const SelectedStation = ({ station }) => {
     if (!station) {
