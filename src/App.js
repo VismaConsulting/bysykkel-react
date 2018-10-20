@@ -5,6 +5,7 @@ import {BysykkelMap} from './components/BysykkelMap';
 import {SelectedStation} from './components/SelectedStation';
 import {getStations, showStationDetails} from './actions/stationsActions';
 import './App.css';
+import './css/sees.css'
 import {getChallenges} from "./actions/challengesActions";
 
 class App extends Component {
