@@ -1,7 +1,7 @@
-var express = require('express');
-var app = express();
-var path = require('path');
-var request = require('request')
+let express = require('express');
+let app = express();
+let path = require('path');
+let request = require('request');
 
 app.use('/', express.static(path.join(__dirname, 'build')));
 
@@ -20,8 +20,8 @@ app.get('/api/stations', (req, res) => {
             'Client-Identifier': 'e44519c73a069e34d97bf6238a34dc27'
         }
     }).pipe(res)
-})
+});
 
-var port = process.env.PORT || 8080
-app.listen(port)
-console.log('Starting server at ' + port)
+let port = process.env.PORT || 8080;
+app.listen(port);
+console.log('Starting server at ' + port);
