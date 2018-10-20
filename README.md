@@ -4,6 +4,8 @@ Laget med [create-react-app](https://github.com/facebook/create-react-app)
 
 Krever [Node.js](https://nodejs.org/en/)
 
+For å hente data trengs en api key fra <https://developer.oslobysykkel.no/>
+
 ## Quick start
 NPM
 ```bash
