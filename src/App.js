@@ -9,6 +9,7 @@ import './css/sees.css'
 import ReactLoading from 'react-loading';
 
 import {getChallenges, showChallengeDetails} from "./actions/challengesActions";
+import {SelectedChallenge} from "./components/SelectedChallenge";
 
 class App extends Component {
     componentDidMount() {
@@ -22,7 +23,9 @@ class App extends Component {
             pending,
             error,
             showStationDetails,
+            visChallenge,
             selectedStation,
+            selectedChallenge,
             challenges
         } = this.props;
 
@@ -37,12 +40,16 @@ class App extends Component {
                 ) : (
                     <Fragment>
                         <div className="container fadeIn">
-                            <SelectedStation station={selectedStation}/>
+                            <SelectedStation station={selectedStation}>
+                                <SelectedChallenge station={selectedStation}
+                                                   challenge={selectedChallenge}/>
+                            </SelectedStation>
+
                             <BysykkelMap
                                 stations={stations}
                                 challenges={challenges}
                                 onStationClick={showStationDetails}
-                                onChallengeClick={showChallengeDetails}
+                                onChallengeClick={visChallenge}
                             />
                         </div>
                     </Fragment>
@@ -61,5 +68,13 @@ export default connect(
         selectedStation: state.stations.selectedStation,
         selectedChallenge: state.challenges.selectedChallenge
     }),
-    {getStations, showStationDetails, showChallengeDetails, getChallenges}
+    dispatch => ({
+        getStations: () => dispatch(getStations()),
+        getChallenges: () => dispatch(getChallenges()),
+        showStationDetails: station => dispatch(showStationDetails(station)),
+        visChallenge: (station, challenge) => {
+            dispatch(showStationDetails(station));
+            dispatch(showChallengeDetails(challenge))
+        }
+    })
 )(App);

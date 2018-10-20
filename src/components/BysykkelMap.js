@@ -19,7 +19,7 @@ export class BysykkelMap extends Component {
     };
 
     handleChallengeClick = ({payload}) => {
-        this.props.onChallengeClick(payload)
+        this.props.onChallengeClick(payload.station, payload.challenge)
     };
 
     render() {
@@ -38,7 +38,7 @@ export class BysykkelMap extends Component {
                             <StarMarker key={id}
                                         type={challenge.type}
                                         anchor={anchor}
-                                        payload={challenge}
+                                        payload={{station, challenge}}
                                         onClick={this.handleChallengeClick}
                             />
                         )
